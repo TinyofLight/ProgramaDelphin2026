@@ -67,8 +67,19 @@ def clasificar_letra(lm, muneca):
         return "L"
     
     # ---------------- LETRA U ----------------
-    '''
-    if menique_pip[1] - menique_tip[1] < 0 \
+    
+    if (not menique_ext
+        and not anular_ext
+        and mayor_ext
+        and indice_ext
+        and pulgar_tip[0] - mayor_tip[0] < 0    # Comprobar posicion del pulgar
+        and indice_tip[0] - mayor_tip[0]  > 20  # Comprobar que los dedos esten juntos
+        and indice_tip[0] - mayor_tip[0]  < 50):
+
+        return "U"
+
+
+    '''menique_pip[1] - menique_tip[1] < 0 \
                         and anular_pip[1] - anular_tip[1] < 0 \
                         and anular_pip[1] - pulgar_tip[1] < 0 \
                         and pulgar_tip[0] - mayor_tip[0] < 0 \
