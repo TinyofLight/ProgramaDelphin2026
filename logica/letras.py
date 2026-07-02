@@ -20,6 +20,11 @@ def clasificar_letra(lm, muneca):
     pulgar_tip = lm['pulgar_tip']
     pulgar_pip = lm['pulgar_pip']
 
+    pulgar_ext = extendido(pulgar_tip, pulgar_pip, muneca)
+    indice_ext = extendido(indice_tip, indice_pip, muneca)
+    mayor_ext = extendido(mayor_tip, mayor_pip, muneca)
+    anular_ext = extendido(mayor_tip, mayor_pip, muneca)
+    menique_ext = extendido(menique_tip, menique_pip, muneca)
 
     # ---------------- LETRA B ----------------
     if (indice_tip[1] < indice_pip[1]
@@ -53,9 +58,6 @@ def clasificar_letra(lm, muneca):
 
 
     # ---------------- LETRA L ----------------
-    indice_ext = extendido(indice_tip, indice_pip, muneca)
-    pulgar_ext = extendido(pulgar_tip, pulgar_pip, muneca)
-
     if (pulgar_ext and indice_ext
         and not extendido(mayor_tip, mayor_pip, muneca)
         and not extendido(anular_tip, anular_pip, muneca)
@@ -63,11 +65,20 @@ def clasificar_letra(lm, muneca):
         and 60 <= angulo(pulgar_tip, muneca, indice_tip) <= 120):
 
         return "L"
-
+    
+    # ---------------- LETRA U ----------------
+    '''
+    if menique_pip[1] - menique_tip[1] < 0 \
+                        and anular_pip[1] - anular_tip[1] < 0 \
+                        and anular_pip[1] - pulgar_tip[1] < 0 \
+                        and pulgar_tip[0] - mayor_tip[0] < 0 \
+                        and mayor_pip[1] - mayor_tip[1] > 0 \
+                        and indice_pip[1] - indice_tip[1] > 0 \
+                        and indice_tip[0] - mayor_tip[0]  > 20 \
+                        and indice_tip[0] - mayor_tip[0]  < 50:
+    '''
 
     # ---------------- LETRA X ----------------
-    indice_ext = extendido(indice_tip, indice_pip, muneca)
-
     if (indice_ext
         and not extendido(mayor_tip, mayor_pip, muneca)
         and not extendido(anular_tip, anular_pip, muneca)
