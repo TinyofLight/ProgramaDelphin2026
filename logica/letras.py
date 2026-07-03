@@ -89,6 +89,17 @@ def clasificar_letra(lm, muneca):
         return "V"
         
     
+    # ---------------- LETRA W ----------------
+    if (not menique_ext
+        and anular_ext
+        and mayor_ext
+        and indice_ext
+        and menique_pip[1] - pulgar_tip[1] < 0 # Comprobar posicion del pulgar
+        and indice_tip[0] - mayor_tip[0]  > 50  #comprobar separacion entre los dedos indice, mayor y anular
+        and mayor_tip[0] - anular_tip[0] > 50):
+        
+        return "W"
+
 
     # ---------------- LETRA X ----------------
     if (indice_ext
