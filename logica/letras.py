@@ -23,7 +23,7 @@ def clasificar_letra(lm, muneca):
     pulgar_ext = extendido(pulgar_tip, pulgar_pip, muneca)
     indice_ext = extendido(indice_tip, indice_pip, muneca)
     mayor_ext = extendido(mayor_tip, mayor_pip, muneca)
-    anular_ext = extendido(mayor_tip, mayor_pip, muneca)
+    anular_ext = extendido(anular_tip, anular_pip, muneca)
     menique_ext = extendido(menique_tip, menique_pip, muneca)
 
     # ---------------- LETRA B ----------------
