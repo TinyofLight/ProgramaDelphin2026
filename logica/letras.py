@@ -72,7 +72,7 @@ def clasificar_letra(lm, muneca):
         and mayor_ext
         and indice_ext
         and pulgar_tip[0] - mayor_tip[0] < 0    # Comprobar posicion del pulgar
-        and indice_tip[0] - mayor_tip[0]  > 20  # Comprobar que los dedos esten juntos
+        and indice_tip[0] - mayor_tip[0] > 20   # Comprobar que los dedos esten juntos
         and indice_tip[0] - mayor_tip[0]  < 50):
 
         return "U"
@@ -84,7 +84,7 @@ def clasificar_letra(lm, muneca):
         and mayor_ext
         and indice_ext
         and pulgar_tip[0] - mayor_tip[0] < 0    # Comprobar posicion del pulgar
-        and indice_tip[0] - mayor_tip[0]  > 50):
+        and indice_tip[0] - mayor_tip[0] > 50): # Separacion de los dedos
 
         return "V"
         
@@ -94,8 +94,8 @@ def clasificar_letra(lm, muneca):
         and anular_ext
         and mayor_ext
         and indice_ext
-        and menique_pip[1] - pulgar_tip[1] < 0 # Comprobar posicion del pulgar
-        and indice_tip[0] - mayor_tip[0]  > 50  #comprobar separacion entre los dedos indice, mayor y anular
+        and pulgar_tip[0] - anular_pip[0] < 0  # Comprobar posicion del pulgar
+        and indice_tip[0] - mayor_tip[0]  > 50  # comprobar separacion entre los dedos indice, mayor y anular
         and mayor_tip[0] - anular_tip[0] > 50):
         
         return "W"
@@ -109,6 +109,16 @@ def clasificar_letra(lm, muneca):
         and 70 <= angulo(indice_tip, indice_pip, lm['indice_dip']) <= 140):
 
         return "X"
+
+
+    # ---------------- LETRA Y ----------------
+    if (menique_ext
+        and not anular_ext
+        and not mayor_ext
+        and not indice_ext
+        and pulgar_ext):
+        
+        return "Y"
 
 
     return None
