@@ -26,6 +26,16 @@ def clasificar_letra(lm, muneca):
     anular_ext = extendido(anular_tip, anular_pip, muneca)
     menique_ext = extendido(menique_tip, menique_pip, muneca)
 
+
+    # ---------------- LETRA A ----------------
+    if (not menique_ext
+        and not anular_ext
+        and not mayor_ext
+        and not indice_ext
+        and pulgar_ext):
+
+        return "A"
+
     # ---------------- LETRA B ----------------
     if (indice_tip[1] < indice_pip[1]
         and mayor_tip[1] < mayor_pip[1]
