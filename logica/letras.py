@@ -1,4 +1,4 @@
-from logica.geometria import distancia_euclidiana, extendido, angulo
+from logica.geometria import distancia_x, distancia_y, distancia_euclidiana, extendido, angulo
 
 
 # ----------------------------
@@ -66,6 +66,18 @@ def clasificar_letra(lm, muneca):
 
         return "D"
 
+
+    # ---------------- LETRA F ----------------
+    if (menique_ext
+        and anular_ext
+        and mayor_ext
+        and not indice_ext 
+        and abs(distancia_x(indice_pip, pulgar_tip)) < 50
+        and abs(distancia_x(menique_tip, anular_pip)) < 60
+        and abs(distancia_x(anular_tip, mayor_tip)) < 60):
+
+        return "F"
+    
 
     # ---------------- LETRA L ----------------
     if (pulgar_ext and indice_ext
