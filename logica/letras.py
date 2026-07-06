@@ -88,6 +88,41 @@ def clasificar_letra(lm, muneca):
 
         return "L"
     
+    #AP ---------------- LETRA M ----------------
+    if (not indice_ext and not mayor_ext and not anular_ext and not menique_ext and not pulgar_ext
+        and distancia_x(pulgar_tip, indice_tip) < 55
+        and distancia_x(pulgar_tip, mayor_tip) < 55
+        and distancia_x(pulgar_tip, anular_tip) < 55
+        and distancia_x(pulgar_tip, menique_tip) < 55):
+            
+        return "M"    
+    
+    #AP ---------------- LETRA N ----------------
+    if (not indice_ext and not mayor_ext and not anular_ext and not menique_ext and not pulgar_ext
+        and distancia_x(pulgar_tip, indice_pip) < 45
+        and distancia_x(pulgar_tip, mayor_pip) < 45
+        and distancia_x(pulgar_tip, indice_tip) > 25
+        and distancia_x(pulgar_tip, mayor_tip) > 25):
+            
+        return "N"
+
+    #AP ---------------- LETRA O ----------------
+    if (not indice_ext and not mayor_ext and not anular_ext and not menique_ext and not pulgar_ext
+        and distancia_x(pulgar_tip, indice_tip) < 40
+        and distancia_x(indice_tip, mayor_tip) < 35
+        and distancia_x(mayor_tip, anular_tip) < 35):
+            
+        return "O"
+    
+    #AP ---------------- LETRA P ----------------
+    if (indice_ext and mayor_ext and not anular_ext and not menique_ext
+        and indice_tip[1] > indice_pip[1] + 25
+        and mayor_tip[1] > mayor_pip[1] + 15
+        and distancia_x(pulgar_tip, indice_pip) > 50
+        and distancia_x(indice_tip, mayor_tip) < 70):
+            
+        return "P"
+    
     # ---------------- LETRA U ----------------
     if (not menique_ext
         and not anular_ext
