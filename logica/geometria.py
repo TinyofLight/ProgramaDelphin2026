@@ -6,6 +6,17 @@ from math import acos, degrees, hypot
 def distancia_euclidiana(p1, p2):
     return ((p2[0] - p1[0])**2 + (p2[1] - p1[1])**2) ** 0.5
 
+#-----------------------------
+# Distancia en x
+#-----------------------------
+def distancia_x(p1, p2):
+    return (p2[0] - p1[0])
+
+#-----------------------------
+# Distancia en y
+#-----------------------------
+def distancia_y(p1, p2):
+    return (p2[1] - p1[1])
 
 # ----------------------------
 # Extensión de dedo
