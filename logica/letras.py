@@ -101,6 +101,17 @@ def clasificar_letra(lm, muneca):
         return "F"
     
 
+
+    # ---------------- LETRA I ----------------
+    if (menique_ext
+        and not anular_ext
+        and not mayor_ext
+        and not indice_ext
+        and not pulgar_ext):
+
+        return "I"
+
+
     # ---------------- LETRA L ----------------
     if (pulgar_ext and indice_ext
         and not extendido(mayor_tip, mayor_pip, muneca)
