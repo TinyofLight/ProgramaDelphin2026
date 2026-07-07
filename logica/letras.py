@@ -7,15 +7,23 @@ from logica.geometria import distancia_x, distancia_y, distancia_euclidiana, ext
 def clasificar_letra(lm, muneca):
     indice_tip = lm['indice_tip']
     indice_pip = lm['indice_pip']
+    indice_dip = lm['indice_dip']
+    indice_mcp = lm['indice_mcp']
 
     mayor_tip  = lm['mayor_tip']
     mayor_pip  = lm['mayor_pip']
+    mayor_dip  = lm['mayor_dip']
+    mayor_mcp  = lm['mayor_mcp']
 
     anular_tip = lm['anular_tip']
     anular_pip = lm['anular_pip']
+    anular_dip = lm['anular_dip']
+    anular_mcp = lm['anular_mcp']
 
     menique_tip = lm['menique_tip']
     menique_pip = lm['menique_pip']
+    menique_dip = lm['menique_dip']
+    menique_mcp = lm['menique_mcp']
 
     pulgar_tip = lm['pulgar_tip']
     pulgar_pip = lm['pulgar_pip']
@@ -65,6 +73,20 @@ def clasificar_letra(lm, muneca):
         and abs(pulgar_tip[1] - mayor_tip[1]) < 40):
 
         return "D"
+    
+
+    # ---------------- LETRA E ----------------
+    if (not menique_ext
+        and not anular_ext
+        and not mayor_ext
+        and not indice_ext
+        and not pulgar_ext
+        and distancia_y(menique_tip, menique_mcp) > 0
+        and distancia_y(anular_tip, anular_mcp) > 0
+        and distancia_y(mayor_tip, mayor_mcp) > 0
+        and distancia_y(indice_tip, indice_mcp)):
+
+        return "E"
 
 
     # ---------------- LETRA F ----------------
