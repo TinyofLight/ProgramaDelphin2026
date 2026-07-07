@@ -57,20 +57,31 @@ class DetectorManos:
             return (int(lm.x * w), int(lm.y * h))
 
         return {
+            # Indice
             'indice_tip': px(8),
             'indice_pip': px(6),
             'indice_dip': px(7),
             'indice_mcp': px(5),
-
+            
+            # Pulgar
             'pulgar_tip': px(4),
             'pulgar_pip': px(2),
 
+            # Mayor (medio)
             'mayor_tip': px(12),
+            'mayor_dip': px(11),
             'mayor_pip': px(10),
+            'mayor_mcp': px(9),
 
+            # Anular
             'anular_tip': px(16),
+            'anular_dip': px(15),
             'anular_pip': px(14),
+            "anular_mcp": px(13),
 
+            # Meñique
             'menique_tip': px(20),
+            'menique_dip': px(19),
             'menique_pip': px(18),
+            'menique_mcp': px(17),
         }
