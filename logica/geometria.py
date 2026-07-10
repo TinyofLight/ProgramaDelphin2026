@@ -41,3 +41,12 @@ def angulo(a, vertice, b):
     cos_ang = max(-1.0, min(1.0, cos_ang))
 
     return degrees(acos(cos_ang))
+
+def dedo_arriba(tip, pip):
+
+    return tip[1] < pip[1]
+
+
+def dedo_abajo(tip, pip):
+
+    return tip[1] > pip[1]

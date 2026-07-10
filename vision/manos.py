@@ -57,6 +57,9 @@ class DetectorManos:
             return (int(lm.x * w), int(lm.y * h))
 
         return {
+            
+            'muneca': px(0),
+            
             # Indice
             'indice_tip': px(8),
             'indice_pip': px(6),
@@ -66,6 +69,7 @@ class DetectorManos:
             # Pulgar
             'pulgar_tip': px(4),
             'pulgar_pip': px(2),
+            'pulgar_mcp': px(2),
 
             # Mayor (medio)
             'mayor_tip': px(12),

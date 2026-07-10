@@ -1,5 +1,17 @@
 from logica.geometria import distancia_x, distancia_y, distancia_euclidiana, extendido, angulo
 
+from config import (
+    DIST_C_MIN,
+    DIST_C_MAX,
+    DIF_PULGAR_MAYOR,
+    DIST_PULGAR_INDICE_I,
+    DIST_PULGAR_INDICE_K,
+    DIST_PULGAR_MCP_L,
+    DIST_PULGAR_INDICE_L,
+    PULGAR_VERTICAL_L,
+    DIST_PULGAR_MCP_P,
+    MARGEN_PULGAR_P
+)
 
 # ----------------------------
 # Clasificación de letras
@@ -103,22 +115,50 @@ def clasificar_letra(lm, muneca):
 
 
     # ---------------- LETRA I ----------------
-    if (menique_ext
+    if (
+        menique_ext
         and not anular_ext
         and not mayor_ext
         and not indice_ext
-        and not pulgar_ext):
-
+        and distancia_euclidiana(pulgar_tip, indice_pip) < DIST_PULGAR_INDICE_I
+    ):
+    
         return "I"
 
+    
+    # ---------------- LETRA K ----------------
+    if (
+    
+        indice_tip[1] > indice_pip[1]
+    
+        and mayor_tip[1] > mayor_pip[1]
+    
+        and anular_pip[1] > anular_tip[1]
+    
+        and menique_pip[1] > menique_tip[1]
+    
+        and pulgar_pip[1] < pulgar_tip[1]
+    
+        and distancia_euclidiana(
+            pulgar_tip,
+            indice_tip
+        ) > DIST_PULGAR_INDICE_K
+    
+    ):
+    
+        return "K"
 
-    # ---------------- LETRA L ----------------
-    if (pulgar_ext and indice_ext
-        and not extendido(mayor_tip, mayor_pip, muneca)
-        and not extendido(anular_tip, anular_pip, muneca)
-        and not extendido(menique_tip, menique_pip, muneca)
-        and 60 <= angulo(pulgar_tip, muneca, indice_tip) <= 120):
-
+# ---------------- LETRA L ----------------
+    if (
+        distancia_y(indice_tip, indice_pip) < -40
+        and distancia_y(mayor_tip, mayor_pip) > 20
+        and distancia_y(anular_tip, anular_pip) > 20
+        and distancia_y(menique_tip, menique_pip) > 20
+        and abs(pulgar_tip[1] - pulgar_pip[1]) <  PULGAR_VERTICAL_L
+        and distancia_euclidiana(pulgar_tip, lm["pulgar_mcp"]) > DIST_PULGAR_MCP_L
+        and distancia_euclidiana(pulgar_tip, indice_tip) > DIST_PULGAR_INDICE_L
+    ):
+    
         return "L"
     
     #AP ---------------- LETRA M ----------------
@@ -147,13 +187,36 @@ def clasificar_letra(lm, muneca):
             
         return "O"
     
-    #AP ---------------- LETRA P ----------------
-    if (indice_ext and mayor_ext and not anular_ext and not menique_ext
-        and indice_tip[1] > indice_pip[1] + 25
-        and mayor_tip[1] > mayor_pip[1] + 15
-        and distancia_x(pulgar_tip, indice_pip) > 50
-        and distancia_x(indice_tip, mayor_tip) < 70):
-            
+    # ---------------- LETRA P ----------------
+
+   
+    if (
+    
+        indice_tip[1] < indice_pip[1]
+    
+        and mayor_tip[1] < mayor_pip[1]
+    
+        and anular_tip[1] > anular_pip[1]
+    
+        and menique_tip[1] > menique_pip[1]
+    
+        and pulgar_tip[1] < pulgar_pip[1]
+    
+        and distancia_euclidiana(
+            pulgar_tip,
+            lm["pulgar_mcp"]
+        ) > DIST_PULGAR_MCP_P
+    
+        and min(indice_pip[0], mayor_pip[0]) - MARGEN_PULGAR_P
+            < pulgar_tip[0] <
+            max(indice_pip[0], mayor_pip[0]) + MARGEN_PULGAR_P
+    
+        and min(indice_pip[1], mayor_pip[1]) - MARGEN_PULGAR_P
+            < pulgar_tip[1] <
+            max(indice_pip[1], mayor_pip[1]) + MARGEN_PULGAR_P
+    
+    ):
+    
         return "P"
     
     # ---------------- LETRA U ----------------
@@ -201,13 +264,16 @@ def clasificar_letra(lm, muneca):
         return "X"
 
 
-    # ---------------- LETRA Y ----------------
-    if (menique_ext
+# ---------------- LETRA Y ----------------
+    if (
+        menique_ext
         and not anular_ext
         and not mayor_ext
         and not indice_ext
-        and pulgar_ext):
-        
+        and pulgar_ext
+        and distancia_euclidiana(pulgar_tip, indice_tip) > 140
+    ):
+    
         return "Y"
 
 
