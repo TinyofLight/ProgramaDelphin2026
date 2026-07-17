@@ -7,6 +7,8 @@ from tracking.rastreador_z import RastreadorZ
 from tracking.rastreador_j import RastreadorJ
 from logica.geometria import distancia_euclidiana, extendido
 from tracking.rastreador_k import RastreadorK
+from audio.gestor_voz import GestorVoz
+
 # ----------------------------
 # INICIALIZAR CÁMARA
 # ----------------------------
@@ -26,6 +28,7 @@ detector = DetectorManos()
 rastreador_z = RastreadorZ()
 rastreador_j = RastreadorJ()
 rastreador_k = RastreadorK()
+gestor_voz = GestorVoz()
 
 frames_mostrar_z = 0
 
@@ -152,7 +155,12 @@ while cap.isOpened():
                 if k is not None:
                     letra_detectada = k
 
-
+            # ----------------------------
+            # VOZ
+            # ----------------------------
+            
+            gestor_voz.actualizar(letra_detectada)
+            
             # ----------------------------
             # MOSTRAR LETRA
             # ----------------------------
