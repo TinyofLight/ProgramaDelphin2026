@@ -1,3 +1,6 @@
 __pycache__
 logica\__pycache__
 tracking\__pycache__
+echo venv/ >> .gitignore
+echo __pycache__/ >> .gitignore
+echo *.pyc >> .gitignore
