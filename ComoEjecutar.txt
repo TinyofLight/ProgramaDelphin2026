@@ -1,0 +1,91 @@
+# Cómo ejecutar Proyecto Delfín 2026
+
+Guía rápida para dejar el proyecto corriendo en una máquina nueva.
+
+## 1. Requisito de Python
+
+El proyecto usa **MediaPipe**, que a la fecha (2026) todavía no soporta
+Python 3.13. Si tu máquina trae Python 3.13 por default, necesitas tener
+también instalado **Python 3.12** (puedes bajarlo de python.org sin
+desinstalar el que ya tengas).
+
+Verifica qué versiones tienes:
+
+```powershell
+py -0
+```
+
+o si tienes la ruta específica de una instalación de 3.12, algo como:
+
+```
+C:\Users\<usuario>\AppData\Local\Programs\Python\Python312\python.exe
+```
+
+## 2. Crear entorno virtual (una sola vez)
+
+Parado en la carpeta del proyecto:
+
+```powershell
+cd ruta\a\proyectoDelfin
+C:\ruta\a\Python312\python.exe -m venv venv
+```
+
+## 3. Activar el entorno virtual (cada vez que trabajes en el proyecto)
+
+```powershell
+venv\Scripts\activate
+```
+
+Vas a ver `(venv)` al inicio de la línea de PowerShell cuando esté activo.
+
+## 4. Instalar dependencias
+
+Con el venv activado:
+
+```powershell
+pip install -r requirements.txt
+```
+
+`requirements.txt` ya trae fijada la versión de MediaPipe que sabemos que
+funciona (`mediapipe==0.10.13`, hasta nuevo aviso). **No la actualices a la
+última versión** — las versiones más nuevas (0.10.30+) rompen el módulo
+`mp.solutions` que usa este proyecto.
+
+## 5. Ejecutar el programa
+
+```powershell
+python main.py
+```
+
+## Controles dentro del programa
+
+- **`q`** — cierra el programa
+- **`b`** — borra la palabra que se está armando (por si te equivocas de seña)
+
+## Problemas comunes
+
+- **`AttributeError: module 'mediapipe' has no attribute 'solutions'`**
+  → Tienes una versión de mediapipe demasiado nueva. Corre:
+  ```powershell
+  pip uninstall mediapipe -y
+  pip install mediapipe==0.10.13
+  ```
+
+- **`ModuleNotFoundError: No module named 'logica.voz'`** (o
+  `tracking.acumulador_palabra`)
+  → Falta ese archivo en su carpeta correspondiente. Revisa que existan:
+  - `logica/voz.py`
+  - `tracking/acumulador_palabra.py`
+
+- **`No such file or directory` al correr `python main.py`**
+  → Verifica que estés parado en la carpeta correcta del proyecto
+  (`cd` a `proyectoDelfin`) y que el archivo se llame exactamente
+  `main.py`.
+
+- **No sale audio al armar una palabra**
+  → El motor de voz (`pyttsx3`) necesita que `mediapipe==0.10.13` (o la
+  versión que estés usando) y `pyttsx3` estén ambos instalados en el
+  mismo venv activo. Confirma con:
+  ```powershell
+  pip show pyttsx3
+  ```

@@ -4,11 +4,11 @@
 
 CAMERA_SOURCE = 0
 
-IP = "192.xxx.x.xxx"
+IP = "192.168.0.231"
 PORT = "8080"
 VIDEO_URL = f"http://{IP}:{PORT}/videofeed"
 
-CAMERA_MODE = "pc"
+CAMERA_MODE = "pc"  # "pc" o "cel"
 
 FRAME_WIDTH = 1920
 FRAME_HEIGHT = 1080
@@ -74,3 +74,21 @@ PULGAR_VERTICAL_L = 35
 # ---------- P ----------
 DIST_PULGAR_MCP_P = 70
 MARGEN_PULGAR_P = 20
+
+
+# ----------------------------
+# ACUMULADOR DE PALABRA
+# ----------------------------
+
+# Frames que una letra debe mantenerse estable para confirmarse
+ACUM_FRAMES_CONFIRMACION = 15
+
+# Frames sin detectar ninguna letra para dar la palabra por terminada
+ACUM_FRAMES_PAUSA = 40
+
+
+# ----------------------------
+# VOZ (TTS)
+# ----------------------------
+
+VOZ_VELOCIDAD = 150
