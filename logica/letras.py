@@ -57,11 +57,12 @@ def clasificar_letra(lm, muneca):
         return "A"
 
     # ---------------- LETRA B ----------------
-    if (indice_tip[1] < indice_pip[1]
-        and mayor_tip[1] < mayor_pip[1]
-        and anular_tip[1] < anular_pip[1]
-        and menique_tip[1] < menique_pip[1]):
-
+    if (menique_ext
+        and anular_ext
+        and mayor_ext
+        and indice_ext
+        and not pulgar_ext):
+        
         return "B"
 
 
