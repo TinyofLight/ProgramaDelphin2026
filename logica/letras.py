@@ -39,6 +39,8 @@ def clasificar_letra(lm, muneca):
 
     pulgar_tip = lm['pulgar_tip']
     pulgar_pip = lm['pulgar_pip']
+    pulgar_mcp = lm['pulgar_mcp']
+
 
     pulgar_ext = extendido(pulgar_tip, pulgar_pip, muneca)
     indice_ext = extendido(indice_tip, indice_pip, muneca)
@@ -62,7 +64,7 @@ def clasificar_letra(lm, muneca):
         and mayor_ext
         and indice_ext
         and not pulgar_ext):
-        
+
         return "B"
 
 
@@ -128,24 +130,12 @@ def clasificar_letra(lm, muneca):
 
     
     # ---------------- LETRA K ----------------
-    if (
-    
-        indice_tip[1] > indice_pip[1]
-    
+    if (indice_tip[1] > indice_pip[1]
         and mayor_tip[1] > mayor_pip[1]
-    
         and anular_pip[1] > anular_tip[1]
-    
         and menique_pip[1] > menique_tip[1]
-    
         and pulgar_pip[1] < pulgar_tip[1]
-    
-        and distancia_euclidiana(
-            pulgar_tip,
-            indice_tip
-        ) > DIST_PULGAR_INDICE_K
-    
-    ):
+        and distancia_euclidiana( pulgar_tip, indice_tip) > DIST_PULGAR_INDICE_K ):
     
         return "K"
 
@@ -156,7 +146,7 @@ def clasificar_letra(lm, muneca):
         and distancia_y(anular_tip, anular_pip) > 20
         and distancia_y(menique_tip, menique_pip) > 20
         and abs(pulgar_tip[1] - pulgar_pip[1]) <  PULGAR_VERTICAL_L
-        and distancia_euclidiana(pulgar_tip, lm["pulgar_mcp"]) > DIST_PULGAR_MCP_L
+        and distancia_euclidiana(pulgar_tip, pulgar_mcp) > DIST_PULGAR_MCP_L
         and distancia_euclidiana(pulgar_tip, indice_tip) > DIST_PULGAR_INDICE_L
     ):
     
@@ -191,20 +181,12 @@ def clasificar_letra(lm, muneca):
     # ---------------- LETRA P ----------------
 
    
-    if (
-    
-        indice_tip[1] < indice_pip[1]
-    
+    if (indice_tip[1] < indice_pip[1]
         and mayor_tip[1] < mayor_pip[1]
-    
         and anular_tip[1] > anular_pip[1]
-    
         and menique_tip[1] > menique_pip[1]
-    
         and pulgar_tip[1] < pulgar_pip[1]
-    
-        and distancia_euclidiana(
-            pulgar_tip,
+        and distancia_euclidiana(pulgar_tip,
             lm["pulgar_mcp"]
         ) > DIST_PULGAR_MCP_P
     
