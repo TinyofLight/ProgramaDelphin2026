@@ -1,6 +1,7 @@
 import cv2
 
-from config import CAMERA_MODE, CAMERA_SOURCE, VIDEO_URL, FRAME_WIDTH, FRAME_HEIGHT,DIST_PULGAR_INDICE_I
+from config import CAMERA_MODE, CAMERA_SOURCE, VIDEO_URL, FRAME_WIDTH, FRAME_HEIGHT
+from constantes import DIST_PULGAR_INDICE_I
 from vision.manos import DetectorManos
 from logica.letras import clasificar_letra
 from tracking.rastreador_z import RastreadorZ

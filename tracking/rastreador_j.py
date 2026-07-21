@@ -1,6 +1,5 @@
 from collections import deque
-
-from config import (
+from constantes import (
     J_MAX_PUNTOS,
     J_UMBRAL_BAJADA,
     J_UMBRAL_SUBIDA,
