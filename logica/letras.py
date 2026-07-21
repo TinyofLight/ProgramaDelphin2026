@@ -115,6 +115,17 @@ def clasificar_letra(lm, muneca):
         return "F"
     
 
+    # ---------------- LETRA G ----------------
+    if (not menique_ext
+        and not anular_ext
+        and not mayor_ext
+        and indice_ext
+        and pulgar_ext
+        and distancia_y(pulgar_tip, pulgar_pip) > 60
+        and abs(distancia_x(indice_tip, indice_pip)) > 80):
+        
+        return "G"
+
 
     # ---------------- LETRA I ----------------
     if ( menique_ext
