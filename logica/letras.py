@@ -138,7 +138,6 @@ def clasificar_letra(lm, muneca):
         
         return "H"
 
-    print(f"pulgar: {pulgar_ext}, anular: {anular_ext}, mayor: {mayor_ext}, indice: {indice_ext}, meñique: {menique_ext}")
 
     # ---------------- LETRA I ----------------
     if ( menique_ext
